@@ -1,0 +1,4 @@
+---
+
+- name: hostnamed
+  command: /etc/init.d/hostname.sh

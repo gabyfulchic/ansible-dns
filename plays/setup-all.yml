@@ -1,0 +1,8 @@
+---
+
+- name: Playbook for DNS confs
+  hosts: production 
+  tasks:
+    include_role: 
+      - dns-hosts
+

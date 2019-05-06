@@ -1,0 +1,25 @@
+---
+
+- name: conf /etc/hosts
+  copy:
+    src: /srv/ansible/ansible-dns/roles/dns-hosts/files/hosts 
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+- name: conf /etc/hostname
+  command: hostnamectl set-hostname {{ hostname }}
+
+- name: conf /etc/resolv.conf
+  copy:
+    src: /srv/ansible/ansible-dns/roles/dns-hosts/files/resolv.conf
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: 0644
+  command: chattr -i /etc/resolv.conf
+
+- name: Prendre en compte les modifications
+  notify: hostnamed
+
