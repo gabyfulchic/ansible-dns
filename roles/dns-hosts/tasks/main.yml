@@ -1,5 +1,3 @@
----
-
 - name: conf /etc/hosts
   copy:
     src: /srv/ansible/ansible-dns/roles/dns-hosts/files/hosts 
